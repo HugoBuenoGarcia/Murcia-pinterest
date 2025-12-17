@@ -1,0 +1,281 @@
+/* -- 1. Estilos Base (Mobile First: < 600px) -- */
+:root {
+    --color-principal: #e76f51;
+    --color-secundario: #2a9d8f;
+    --color-fondo: #f4f4f9;
+    --color-texto: #264653;
+    --sombra-card: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --sombra-hover: 0 8px 16px rgba(0, 0, 0, 0.2);
+    --borde-radio: 10px;
+    --ancho-fijo: 100px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+/* Estructura Grid Sencilla para Mobile */
+#contenedor-grid {
+    display: grid;
+    grid-template-areas:
+        "cabecera"
+        "menu-lateral"
+        "cuerpo-principal"
+        "aside-lateral"
+        "pie";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 100px auto 100px auto;
+    gap: 15px;
+    padding: 10px;
+}
+
+/* Colocación de elementos en Grid (Mobile) */
+#cabecera { grid-area: cabecera; }
+#menu-lateral { grid-area: menu-lateral; }
+#cuerpo-principal { grid-area: cuerpo-principal; }
+#aside-lateral { grid-area: aside-lateral; }
+#pie { grid-area: pie; }
+
+/* Estilos Comunes de Elementos Fijos */
+#cabecera, #menu-lateral, #aside-lateral, #pie {
+    background-color: white;
+    padding: 15px;
+    border-radius: var(--borde-radio);
+    box-shadow: var(--sombra-card);
+    text-align: center;
+}
+
+#menu-lateral ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+#menu-lateral a {
+    text-decoration: none;
+    color: var(--color-secundario);
+    font-weight: bold;
+}
+
+/* -- 2. Estilos del Cuerpo Principal (Pinterest Flex) -- */
+
+#cuerpo-principal {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0;
+}
+
+/* Card (Tarjeta de Pueblo/Ciudad) */
+.card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: var(--borde-radio);
+    box-shadow: var(--sombra-card);
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+}
+
+/* Contenedor de Imagen y Overlay */
+.card-imagen-contenedor {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Overlay (Efecto Pinterest: oscurecimiento y aparición de texto/iconos) */
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.card-imagen-contenedor:hover .card-overlay {
+    opacity: 1;
+}
+
+.overlay-texto {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    margin-top: auto;
+}
+
+.overlay-iconos {
+    display: flex;
+    gap: 15px;
+    margin-bottom: auto;
+}
+
+.overlay-iconos i, .overlay-iconos a {
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.overlay-iconos i:hover, .overlay-iconos a:hover {
+    background-color: var(--color-principal);
+}
+
+/* Estilo del icono de "Me Gusta" cuando está activo */
+.like-btn[data-liked="true"] {
+    color: red;
+}
+
+/* Información y Botón */
+.card-info {
+    padding: 15px;
+}
+
+.card-action-btn {
+    background-color: var(--color-secundario);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.card-action-btn:hover {
+    background-color: var(--color-principal);
+}
+
+/* Efecto de Hover en la Tarjeta Completa */
+.card:focus, .card:hover {
+    box-shadow: var(--sombra-hover);
+    transform: translateY(-5px);
+    border-color: var(--color-secundario);
+    background-color: #e2e2e2;
+}
+
+/* Efecto Permanente al Pulsar el Botón */
+.card.permanently-changed {
+    background-color: #fff3cd;
+    border-left: 5px solid #ffc107;
+}
+
+.card.permanently-changed .card-action-btn {
+    background-color: #ffc107;
+    content: "VISTO";
+}
+
+/* 3. Media Queries (Mobile First y Sintaxis Nueva) */
+
+/* Estilos para Pantallas Medianas */
+@media (width >= 600px) and (width <= 800px) {
+
+    /* Estructura Grid Mediana */
+    #contenedor-grid {
+        grid-template-areas:
+            "cabecera cabecera"
+            "menu-lateral cuerpo-principal"
+            "aside-lateral cuerpo-principal"
+            "pie pie";
+        grid-template-columns: var(--ancho-fijo) 1fr;
+        grid-template-rows: auto auto 1fr auto;
+    }
+
+    #menu-lateral ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Distribución de Tarjetas en 2 columnas Flexbox */
+    #cuerpo-principal {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    .card {
+        width: calc(50% - 7.5px);
+    }
+
+    /* Ocultamos aside para optimizar espacio en este rango */
+    #aside-lateral {
+        display: none;
+    }
+
+    /* Reajustamos el área del menú para que ocupe el espacio del aside */
+    #menu-lateral {
+        grid-row: 2 / span 2;
+    }
+}
+
+/* Estilos para Pantallas Grandes */
+@media (width >= 800px) {
+    
+    /* Estructura Grid Grande (Layout Completo) */
+    #contenedor-grid {
+        max-width: 1400px;
+        margin: 0 auto;
+        grid-template-areas:
+            "cabecera cabecera cabecera"
+            "menu-lateral cuerpo-principal aside-lateral"
+            "pie pie pie";
+        grid-template-columns: var(--ancho-fijo) 1fr 200px;
+        grid-template-rows: auto 1fr auto;
+    }
+
+    #menu-lateral ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    #menu-lateral a {
+        padding: 5px 0;
+        display: block;
+    }
+
+    #aside-lateral {
+        display: block;
+    }
+
+    /* Distribución de Tarjetas estilo Masonry con Flexbox */
+    /* Usamos columns para una verdadera simulación de Pinterest (Masonry) */
+    #cuerpo-principal {
+        display: block;
+        column-count: 3;
+        column-gap: 15px;
+    }
+    
+    .card {
+        width: 100%;
+        margin-bottom: 15px;
+        display: inline-block;
+    }
+}

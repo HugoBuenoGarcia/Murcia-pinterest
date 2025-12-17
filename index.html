@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Pinterest de pueblos y ciudades de la Región de Murcia. Descubre y guarda tus lugares favoritos.">
+    <meta name="keywords" content="Murcia, pueblos, ciudades, turismo, fotos, Pinterest, Región de Murcia">
+    <meta name="author" content="Gemini AI Assistant">
+    <title>Murcia Visual - Pueblos y Ciudades</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="cabecera">
+        <h1>Murcia Visual</h1>
+        <p>Descubre los rincones más bellos de la Región de Murcia.</p>
+    </header>
+    <div id="contenedor-grid">
+        <nav id="menu-lateral">
+            <h2>Menú</h2>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#populares">Populares</a></li>
+                <li><a href="#guardados">Mis Favoritos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <main id="cuerpo-principal">
+            <div class="card" data-id="1" data-likes="0">
+                <div class="card-imagen-contenedor">
+                    <img src="images/catedralMurcia.jpg" alt="Foto de la catedral de Murcia">
+                    <div class="card-overlay">
+                        <span class="overlay-texto">Ciudad de Murcia: La capital.</span>
+                        <div class="overlay-iconos">
+                            <i class="fa-solid fa-heart like-btn" data-liked="false"></i>
+                            <a href="https://www.murciaturistica.es/" target="_blank"><i
+                                    class="fa-solid fa-up-right-from-square external-link-btn"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Murcia Capital</h3>
+                    <p>La cuna del barroco murciano y la huerta.</p>
+                    <button class="card-action-btn">Detalle</button>
+                </div>
+            </div>
+
+            <div class="card" data-id="2" data-likes="0">
+                <div class="card-imagen-contenedor">
+                    <img src="images/bocagrande-desde-el-hotel.jpg" alt="Foto de Cartagena">
+                    <div class="card-overlay">
+                        <span class="overlay-texto">Cartagena: Historia romana y naval.</span>
+                        <div class="overlay-iconos">
+                            <i class="fa-solid fa-heart like-btn" data-liked="false"></i>
+                            <a href="https://www.murciaturistica.es/es/cartagena/" target="_blank"><i
+                                    class="fa-solid fa-up-right-from-square external-link-btn"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Cartagena</h3>
+                    <p>Puerta de España, con un legado romano único.</p>
+                    <button class="card-action-btn">Detalle</button>
+                </div>
+            </div>
+
+            <div class="card" data-id="3" data-likes="0">
+                <div class="card-imagen-contenedor">
+                    <img src="images/Lorca.jpg" alt="Foto de Lorca">
+                    <div class="card-overlay">
+                        <span class="overlay-texto">Lorca: La ciudad del Sol, castillos y bordados.</span>
+                        <div class="overlay-iconos">
+                            <i class="fa-solid fa-heart like-btn" data-liked="false"></i>
+                            <a href="https://www.murciaturistica.es/es/lorca/" target="_blank"><i
+                                    class="fa-solid fa-up-right-from-square external-link-btn"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Lorca</h3>
+                    <p>Conocida por su impresionante Semana Santa.</p>
+                    <button class="card-action-btn">Detalle</button>
+                </div>
+            </div>
+        </main>
+        <aside id="aside-lateral">
+            <h2>Publicidad</h2>
+            <p>Aquí se podría incluir contenido promocional.</p>
+        </aside>
+    </div>
+    <footer id="pie">
+        <p>&copy; 2025 Murcia Visual - Proyecto de Desarrollo Web.</p>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
